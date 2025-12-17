@@ -58,6 +58,14 @@ export default function Home() {
       emoji: "⚡",
       status: "ready",
     },
+    {
+      title: "Virtual DOM & Reconciliation",
+      description:
+        "Understand how React works under the hood. Learn about Virtual DOM, reconciliation, diffing algorithms, and batching for optimal performance.",
+      href: "/virtual-dom",
+      emoji: "🌳",
+      status: "ready",
+    },
     // Add more topics here as you create them
     // {
     //   title: "Closures & Scope",
