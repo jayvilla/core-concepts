@@ -98,6 +98,14 @@ export default function Home() {
       emoji: "⏱️",
       status: "ready",
     },
+    {
+      title: "Rendering Strategies",
+      description:
+        "Master different rendering strategies: CSR, SSR, SSG, ISR, and React Server Components. Learn when to use each approach for optimal performance.",
+      href: "/rendering-strategies",
+      emoji: "🎨",
+      status: "ready",
+    },
     // Add more topics here as you create them
     // {
     //   title: "Closures & Scope",
