@@ -36,6 +36,12 @@ export class RestApiService {
     filteredUsers.sort((a, b) => {
       const aValue = a[sortBy as keyof User];
       const bValue = b[sortBy as keyof User];
+      
+      // Handle undefined values
+      if (aValue === undefined && bValue === undefined) return 0;
+      if (aValue === undefined) return 1;
+      if (bValue === undefined) return -1;
+      
       const comparison = aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
       return sortOrder === 'asc' ? comparison : -comparison;
     });
