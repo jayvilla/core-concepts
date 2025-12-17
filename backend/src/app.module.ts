@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { RestApiModule } from './concepts/rest-api/rest-api.module';
 import { TypeormModule } from './concepts/typeorm/typeorm.module';
 import { EventDrivenModule } from './concepts/event-driven/event-driven.module';
+import { SagaModule } from './concepts/saga/saga.module';
 import { User } from './concepts/typeorm/entities/user.entity';
 import { Profile } from './concepts/typeorm/entities/profile.entity';
 import { Post } from './concepts/typeorm/entities/post.entity';
@@ -24,6 +25,7 @@ import { Tag } from './concepts/typeorm/entities/tag.entity';
     RestApiModule,
     TypeormModule,
     EventDrivenModule,
+    SagaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
