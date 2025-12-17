@@ -90,6 +90,14 @@ export default function Home() {
       emoji: "📘",
       status: "ready",
     },
+    {
+      title: "Debounce vs Throttle",
+      description:
+        "Learn the difference between debounce and throttle. Understand when to use each technique to optimize performance and improve user experience.",
+      href: "/debounce-throttle",
+      emoji: "⏱️",
+      status: "ready",
+    },
     // Add more topics here as you create them
     // {
     //   title: "Closures & Scope",
