@@ -50,6 +50,14 @@ export default function Home() {
       emoji: "🪝",
       status: "ready",
     },
+    {
+      title: "Memoization: useMemo, useCallback, React.memo",
+      description:
+        "Learn how to optimize React performance with memoization. Understand when and how to use useMemo, useCallback, and React.memo effectively.",
+      href: "/memoization",
+      emoji: "⚡",
+      status: "ready",
+    },
     // Add more topics here as you create them
     // {
     //   title: "Closures & Scope",
