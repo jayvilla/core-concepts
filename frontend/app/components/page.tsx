@@ -19,7 +19,7 @@ export default function ComponentsPage() {
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               Controlled vs Uncontrolled Components
             </h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-800 max-w-3xl mx-auto">
               A practical demonstration of React controlled and uncontrolled
               components. Perfect for understanding this common interview
               concept!
@@ -41,7 +41,7 @@ export default function ComponentsPage() {
           <h2 className="text-2xl font-bold mb-4 text-gray-900">
             💡 Interview Tips
           </h2>
-          <div className="space-y-3 text-gray-700">
+          <div className="space-y-3 text-gray-900">
             <div>
               <p className="font-semibold mb-1">Common Question:</p>
               <p className="text-sm">

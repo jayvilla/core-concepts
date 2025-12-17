@@ -97,7 +97,9 @@ export default function LifecycleLogger() {
         {/* Controls */}
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-2">Count: {count}</label>
+            <label className="block text-sm font-medium mb-2 text-gray-900">
+              Count: {count}
+            </label>
             <button
               onClick={() => setCount((prev) => prev + 1)}
               className="px-4 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-600 mr-2"
@@ -113,13 +115,15 @@ export default function LifecycleLogger() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-2">Name:</label>
+            <label className="block text-sm font-medium mb-2 text-gray-900">
+              Name:
+            </label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Type a name..."
-              className="w-full px-4 py-2 border border-purple-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-2 border border-purple-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900"
             />
           </div>
 
@@ -135,7 +139,7 @@ export default function LifecycleLogger() {
         <div className="bg-gray-900 rounded-md p-4 max-h-96 overflow-y-auto">
           <h3 className="text-white font-semibold mb-3">Event Log:</h3>
           {events.length === 0 ? (
-            <p className="text-gray-400 text-sm">No events yet...</p>
+            <p className="text-gray-300 text-sm">No events yet...</p>
           ) : (
             <div className="space-y-1 font-mono text-xs">
               {events.map((event) => (
@@ -154,15 +158,24 @@ export default function LifecycleLogger() {
         </p>
         <ul className="text-xs text-yellow-800 space-y-1">
           <li>
-            • <code className="bg-yellow-100 px-1 rounded">useEffect(() =&gt; {}, [])</code>{" "}
+            •{" "}
+            <code className="bg-yellow-100 px-1 rounded">
+              useEffect(() =&gt; {}, [])
+            </code>{" "}
             = Runs once on mount
           </li>
           <li>
-            • <code className="bg-yellow-100 px-1 rounded">useEffect(() =&gt; {}, [dep])</code>{" "}
+            •{" "}
+            <code className="bg-yellow-100 px-1 rounded">
+              useEffect(() =&gt; {}, [dep])
+            </code>{" "}
             = Runs on mount + when dep changes
           </li>
           <li>
-            • <code className="bg-yellow-100 px-1 rounded">useEffect(() =&gt; {})</code>{" "}
+            •{" "}
+            <code className="bg-yellow-100 px-1 rounded">
+              useEffect(() =&gt; {})
+            </code>{" "}
             = Runs on every render (usually avoid)
           </li>
           <li>
@@ -173,4 +186,3 @@ export default function LifecycleLogger() {
     </div>
   );
 }
-

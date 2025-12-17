@@ -54,18 +54,18 @@ export default function ComparisonExample() {
         <div className="space-y-4">
           <h3 className="font-bold text-blue-900">Controlled</h3>
           <div>
-            <label className="block text-sm font-medium mb-2">Email:</label>
+            <label className="block text-sm font-medium mb-2 text-gray-900">Email:</label>
             <input
               type="email"
               value={controlledEmail}
               onChange={handleControlledChange}
-              className="w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               placeholder="email@example.com"
             />
             {controlledError && (
               <p className="text-red-600 text-sm mt-1">{controlledError}</p>
             )}
-            <p className="text-xs text-gray-600 mt-1">
+            <p className="text-xs text-gray-800 mt-1">
               Validates on every keystroke
             </p>
           </div>
@@ -75,18 +75,18 @@ export default function ComparisonExample() {
         <div className="space-y-4">
           <h3 className="font-bold text-green-900">Uncontrolled</h3>
           <div>
-            <label className="block text-sm font-medium mb-2">Email:</label>
+            <label className="block text-sm font-medium mb-2 text-gray-900">Email:</label>
             <input
               type="email"
               ref={uncontrolledEmailRef}
               onBlur={validateUncontrolled}
-              className="w-full px-4 py-2 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-2 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900"
               placeholder="email@example.com"
             />
             {uncontrolledError && (
               <p className="text-red-600 text-sm mt-1">{uncontrolledError}</p>
             )}
-            <p className="text-xs text-gray-600 mt-1">
+            <p className="text-xs text-gray-800 mt-1">
               Validates on blur (when leaving input)
             </p>
           </div>
@@ -102,7 +102,7 @@ export default function ComparisonExample() {
             <p className="font-semibold text-blue-900 mb-2">
               Use Controlled when:
             </p>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-gray-900">
               <li>• Need real-time validation</li>
               <li>• Need to transform input (e.g., uppercase)</li>
               <li>• Form state affects other UI elements</li>
@@ -114,7 +114,7 @@ export default function ComparisonExample() {
             <p className="font-semibold text-green-900 mb-2">
               Use Uncontrolled when:
             </p>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-gray-900">
               <li>• Simple forms with many inputs</li>
               <li>• Only need values on submit</li>
               <li>• Performance matters (fewer re-renders)</li>

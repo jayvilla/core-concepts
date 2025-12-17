@@ -18,6 +18,14 @@ export default function Home() {
       emoji: "🔄",
       status: "ready",
     },
+    {
+      title: "Props vs State",
+      description:
+        "Learn the fundamental difference between props and state, when to use each, and how data flows in React.",
+      href: "/props-state",
+      emoji: "📊",
+      status: "ready",
+    },
     // Add more topics here as you create them
     // {
     //   title: "Closures & Scope",
@@ -36,7 +44,7 @@ export default function Home() {
           <h1 className="text-5xl font-bold text-gray-900 mb-4">
             Frontend Interview Practice
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto">
             Interactive examples and demonstrations of core frontend concepts
             for interview preparation.
           </p>
@@ -57,7 +65,7 @@ export default function Home() {
               <div className="flex items-start justify-between mb-3">
                 <span className="text-4xl">{topic.emoji}</span>
                 {topic.status === "coming-soon" && (
-                  <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded">
+                  <span className="text-xs bg-gray-200 text-gray-800 px-2 py-1 rounded">
                     Coming Soon
                   </span>
                 )}
@@ -65,7 +73,7 @@ export default function Home() {
               <h2 className="text-xl font-bold text-gray-900 mb-2">
                 {topic.title}
               </h2>
-              <p className="text-gray-600 text-sm">{topic.description}</p>
+              <p className="text-gray-800 text-sm">{topic.description}</p>
             </Link>
           ))}
         </div>
@@ -75,11 +83,11 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-4 text-gray-900">
             📚 Practice Topics
           </h2>
-          <p className="text-gray-700 mb-4">
+          <p className="text-gray-900 mb-4">
             Each topic includes interactive examples, code explanations, and
             interview tips. Click on a topic to start practicing!
           </p>
-          <div className="text-sm text-gray-600">
+          <div className="text-sm text-gray-800">
             <p className="font-semibold mb-2">Topics covered:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>React concepts (Components, Hooks, State Management)</li>

@@ -46,7 +46,7 @@ export default function ControlledComponent() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-sm font-medium mb-2 text-gray-900">
             Name (converts to uppercase):
           </label>
           <input
@@ -54,9 +54,9 @@ export default function ControlledComponent() {
             value={inputValue} // Value is controlled by React state
             onChange={handleChange} // Every keystroke updates state
             placeholder="Type your name..."
-            className="w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
           />
-          <p className="text-xs text-gray-600 mt-1">
+          <p className="text-xs text-gray-800 mt-1">
             Current state: {inputValue || "(empty)"}
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function ControlledComponent() {
 
       {submittedValue && (
         <div className="mt-4 p-3 bg-blue-100 rounded-md">
-          <p className="font-semibold">Submitted value:</p>
+          <p className="font-semibold text-gray-900">Submitted value:</p>
           <p className="text-blue-900">{submittedValue}</p>
         </div>
       )}

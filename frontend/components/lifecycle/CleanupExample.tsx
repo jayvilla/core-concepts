@@ -100,7 +100,7 @@ export default function CleanupExample() {
               {isActive ? "Stop" : "Start"}
             </button>
           </div>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-800">
             Timer cleanup prevents memory leaks when component unmounts or timer
             is stopped
           </p>
@@ -111,11 +111,11 @@ export default function CleanupExample() {
           <h3 className="font-semibold mb-3 text-orange-900">
             Example 2: Event Listener Cleanup
           </h3>
-          <p className="text-sm text-gray-600 mb-2">
+          <p className="text-sm text-gray-800 mb-2">
             Resize the window and check console. Cleanup removes listener on
             unmount.
           </p>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-800">
             Click count (only when timer is active):{" "}
             <span className="font-bold text-orange-600">{clickCount}</span>
           </p>

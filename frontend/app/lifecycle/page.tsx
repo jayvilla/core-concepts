@@ -20,7 +20,7 @@ export default function LifecyclePage() {
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               Component Lifecycle
             </h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-800 max-w-3xl mx-auto">
               Understanding React component lifecycle with useEffect hooks.
               Learn when effects run, cleanup functions, and dependency arrays.
             </p>
@@ -40,7 +40,7 @@ export default function LifecyclePage() {
           <h2 className="text-2xl font-bold mb-4 text-gray-900">
             💡 Interview Tips
           </h2>
-          <div className="space-y-4 text-gray-700">
+          <div className="space-y-4 text-gray-900">
             <div>
               <p className="font-semibold mb-2">Common Questions:</p>
               <ul className="text-sm space-y-1 list-disc list-inside">

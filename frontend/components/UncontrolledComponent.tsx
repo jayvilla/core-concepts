@@ -51,7 +51,7 @@ export default function UncontrolledComponent() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-sm font-medium mb-2 text-gray-900">
             Name (managed by DOM):
           </label>
           <input
@@ -59,9 +59,9 @@ export default function UncontrolledComponent() {
             ref={inputRef} // Use ref to access value, not state
             defaultValue="" // Only sets initial value, not bound to state
             placeholder="Type your name..."
-            className="w-full px-4 py-2 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full px-4 py-2 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900"
           />
-          <p className="text-xs text-gray-600 mt-1">
+          <p className="text-xs text-gray-800 mt-1">
             Value stored in DOM, not React state
           </p>
         </div>
@@ -92,7 +92,7 @@ export default function UncontrolledComponent() {
 
       {submittedValue && (
         <div className="mt-4 p-3 bg-green-100 rounded-md">
-          <p className="font-semibold">Submitted value:</p>
+          <p className="font-semibold text-gray-900">Submitted value:</p>
           <p className="text-green-900">{submittedValue}</p>
         </div>
       )}

@@ -57,23 +57,23 @@ export default function MountUnmountExample() {
           >
             {showChild ? "Unmount Component" : "Mount Component"}
           </button>
-          <span className="text-sm text-gray-600">
+          <span className="text-sm text-gray-800">
             Mounted {mountCount} time{mountCount !== 1 ? "s" : ""}
           </span>
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-sm font-medium mb-2 text-gray-900">
             Child Name (changing will remount):
           </label>
           <input
             type="text"
             value={childName}
             onChange={(e) => setChildName(e.target.value)}
-            className="px-4 py-2 border border-indigo-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="px-4 py-2 border border-indigo-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900"
             disabled={showChild}
           />
-          <p className="text-xs text-gray-600 mt-1">
+          <p className="text-xs text-gray-800 mt-1">
             {showChild
               ? "Unmount first to change name"
               : "Change name, then mount to see new name"}
