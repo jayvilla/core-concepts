@@ -66,6 +66,14 @@ export default function Home() {
       emoji: "🌳",
       status: "ready",
     },
+    {
+      title: "Performance: Code Splitting & Lazy Loading",
+      description:
+        "Learn how to optimize React applications with code splitting and lazy loading. Reduce bundle sizes, improve load times, and enhance user experience.",
+      href: "/performance",
+      emoji: "🚀",
+      status: "ready",
+    },
     // Add more topics here as you create them
     // {
     //   title: "Closures & Scope",
