@@ -26,6 +26,14 @@ export default function Home() {
       emoji: "📊",
       status: "ready",
     },
+    {
+      title: "State Management",
+      description:
+        "Master useState, useReducer, and Context API. Learn when to use each approach for effective state management.",
+      href: "/state-management",
+      emoji: "🗂️",
+      status: "ready",
+    },
     // Add more topics here as you create them
     // {
     //   title: "Closures & Scope",
