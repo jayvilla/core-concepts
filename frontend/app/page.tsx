@@ -34,6 +34,14 @@ export default function Home() {
       emoji: "🗂️",
       status: "ready",
     },
+    {
+      title: "Keys in Lists",
+      description:
+        "Understand why keys are important in React lists. Learn how keys help React efficiently update the DOM and avoid bugs.",
+      href: "/keys",
+      emoji: "🔑",
+      status: "ready",
+    },
     // Add more topics here as you create them
     // {
     //   title: "Closures & Scope",
