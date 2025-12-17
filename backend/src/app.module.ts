@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RestApiModule } from './concepts/rest-api/rest-api.module';
 import { TypeormModule } from './concepts/typeorm/typeorm.module';
+import { EventDrivenModule } from './concepts/event-driven/event-driven.module';
 import { User } from './concepts/typeorm/entities/user.entity';
 import { Profile } from './concepts/typeorm/entities/profile.entity';
 import { Post } from './concepts/typeorm/entities/post.entity';
@@ -22,6 +23,7 @@ import { Tag } from './concepts/typeorm/entities/tag.entity';
     // Feature Modules
     RestApiModule,
     TypeormModule,
+    EventDrivenModule,
   ],
   controllers: [AppController],
   providers: [AppService],
