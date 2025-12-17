@@ -10,6 +10,14 @@ export default function Home() {
       emoji: "🎛️",
       status: "ready",
     },
+    {
+      title: "Component Lifecycle",
+      description:
+        "Understand React component lifecycle with useEffect, cleanup functions, and dependency arrays.",
+      href: "/lifecycle",
+      emoji: "🔄",
+      status: "ready",
+    },
     // Add more topics here as you create them
     // {
     //   title: "Closures & Scope",
