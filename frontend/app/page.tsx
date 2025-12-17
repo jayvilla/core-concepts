@@ -42,6 +42,14 @@ export default function Home() {
       emoji: "🔑",
       status: "ready",
     },
+    {
+      title: "Hooks: Custom Hooks & Rules",
+      description:
+        "Learn how to create custom hooks and understand the rules of hooks. Master reusable stateful logic and avoid common pitfalls.",
+      href: "/hooks",
+      emoji: "🪝",
+      status: "ready",
+    },
     // Add more topics here as you create them
     // {
     //   title: "Closures & Scope",
