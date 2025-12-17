@@ -106,6 +106,14 @@ export default function Home() {
       emoji: "🎨",
       status: "ready",
     },
+    {
+      title: "PostgreSQL Concepts",
+      description:
+        "Master PostgreSQL fundamentals for backend development. Learn SQL basics, relationships, joins, indexes, pagination, transactions, and connecting with TypeORM.",
+      href: "/postgresql",
+      emoji: "🐘",
+      status: "ready",
+    },
     // Add more topics here as you create them
     // {
     //   title: "Closures & Scope",
