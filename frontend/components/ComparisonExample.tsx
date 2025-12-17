@@ -1,45 +1,45 @@
-'use client';
+"use client";
 
-import { useState, useRef } from 'react';
+import { useState, useRef } from "react";
 
 /**
  * SIDE-BY-SIDE COMPARISON
- * 
+ *
  * This component demonstrates a practical scenario where
  * the choice between controlled vs uncontrolled matters:
- * 
+ *
  * Scenario: Form with validation and conditional UI
  */
 
 export default function ComparisonExample() {
   // Controlled approach
-  const [controlledEmail, setControlledEmail] = useState('');
-  const [controlledError, setControlledError] = useState('');
+  const [controlledEmail, setControlledEmail] = useState("");
+  const [controlledError, setControlledError] = useState("");
 
   // Uncontrolled approach
   const uncontrolledEmailRef = useRef<HTMLInputElement>(null);
-  const [uncontrolledError, setUncontrolledError] = useState('');
+  const [uncontrolledError, setUncontrolledError] = useState("");
 
   // Controlled validation (can validate on every keystroke)
   const handleControlledChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setControlledEmail(value);
-    
+
     // Real-time validation
-    if (value && !value.includes('@')) {
-      setControlledError('Email must contain @');
+    if (value && !value.includes("@")) {
+      setControlledError("Email must contain @");
     } else {
-      setControlledError('');
+      setControlledError("");
     }
   };
 
   // Uncontrolled validation (only on submit/blur)
   const validateUncontrolled = () => {
-    const value = uncontrolledEmailRef.current?.value || '';
-    if (value && !value.includes('@')) {
-      setUncontrolledError('Email must contain @');
+    const value = uncontrolledEmailRef.current?.value || "";
+    if (value && !value.includes("@")) {
+      setUncontrolledError("Email must contain @");
     } else {
-      setUncontrolledError('');
+      setUncontrolledError("");
     }
   };
 
@@ -99,7 +99,9 @@ export default function ComparisonExample() {
         </h4>
         <div className="grid md:grid-cols-2 gap-4 text-sm">
           <div>
-            <p className="font-semibold text-blue-900 mb-2">Use Controlled when:</p>
+            <p className="font-semibold text-blue-900 mb-2">
+              Use Controlled when:
+            </p>
             <ul className="space-y-1 text-gray-700">
               <li>• Need real-time validation</li>
               <li>• Need to transform input (e.g., uppercase)</li>
@@ -109,7 +111,9 @@ export default function ComparisonExample() {
             </ul>
           </div>
           <div>
-            <p className="font-semibold text-green-900 mb-2">Use Uncontrolled when:</p>
+            <p className="font-semibold text-green-900 mb-2">
+              Use Uncontrolled when:
+            </p>
             <ul className="space-y-1 text-gray-700">
               <li>• Simple forms with many inputs</li>
               <li>• Only need values on submit</li>
@@ -123,4 +127,3 @@ export default function ComparisonExample() {
     </div>
   );
 }
-

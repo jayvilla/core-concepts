@@ -1,6 +1,6 @@
-import ControlledComponent from "../components/ControlledComponent";
-import UncontrolledComponent from "../components/UncontrolledComponent";
-import ComparisonExample from "../components/ComparisonExample";
+import ControlledComponent from "@/components/ControlledComponent";
+import UncontrolledComponent from "@/components/UncontrolledComponent";
+import ComparisonExample from "@/components/ComparisonExample";
 import Link from "next/link";
 
 export default function ComponentsPage() {
