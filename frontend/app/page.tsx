@@ -74,6 +74,22 @@ export default function Home() {
       emoji: "🚀",
       status: "ready",
     },
+    {
+      title: "Error Boundaries",
+      description:
+        "Learn how to handle errors gracefully in React. Understand Error Boundaries, what they catch, their limitations, and best practices for error handling.",
+      href: "/error-boundary",
+      emoji: "🛡️",
+      status: "ready",
+    },
+    {
+      title: "TypeScript Concepts",
+      description:
+        "Master TypeScript fundamentals for frontend development. Learn types, interfaces, generics, and how to use TypeScript effectively with React.",
+      href: "/typescript",
+      emoji: "📘",
+      status: "ready",
+    },
     // Add more topics here as you create them
     // {
     //   title: "Closures & Scope",
