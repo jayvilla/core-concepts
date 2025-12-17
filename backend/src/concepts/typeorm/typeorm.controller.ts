@@ -11,6 +11,18 @@ import {
   HttpCode,
   HttpStatus,
 } from '@nestjs/common';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiParam,
+  ApiQuery,
+  ApiBody,
+  ApiOkResponse,
+  ApiCreatedResponse,
+  ApiNoContentResponse,
+  ApiNotFoundResponse,
+} from '@nestjs/swagger';
 import { TypeormService } from './typeorm.service';
 import { User } from './entities/user.entity';
 import { Profile } from './entities/profile.entity';
@@ -19,9 +31,10 @@ import { Post } from './entities/post.entity';
 /**
  * TypeORM Controller
  * Demonstrates TypeORM features through HTTP endpoints
- * 
+ *
  * Route: /concepts/typeorm
  */
+@ApiTags('TypeORM')
 @Controller('concepts/typeorm')
 export class TypeormController {
   constructor(private readonly typeormService: TypeormService) {}
@@ -31,6 +44,16 @@ export class TypeormController {
    * Get all users using Repository
    */
   @Get('users')
+  @ApiOperation({
+    summary: 'Get all users (Repository)',
+    description: `Retrieve all users using TypeORM Repository pattern.
+
+**Features demonstrated:**
+- Repository.find() method
+- Simple data retrieval
+- Repository pattern usage`,
+  })
+  @ApiOkResponse({ description: 'List of all users' })
   async findAllUsers() {
     return await this.typeormService.findAllUsers();
   }
@@ -49,6 +72,19 @@ export class TypeormController {
    * Get user with all relationships (eager loading)
    */
   @Get('users/:id/relations')
+  @ApiOperation({
+    summary: 'Get user with relationships (Eager Loading)',
+    description: `Retrieve a user with all related entities loaded.
+
+**Features demonstrated:**
+- Eager loading with relations option
+- One-to-One relationship (Profile)
+- One-to-Many relationship (Posts)
+- Many-to-Many relationship (Tags)`,
+  })
+  @ApiParam({ name: 'id', type: Number, description: 'User ID', example: 1 })
+  @ApiOkResponse({ description: 'User with all relationships loaded' })
+  @ApiNotFoundResponse({ description: 'User not found' })
   async findUserWithRelations(@Param('id', ParseIntPipe) id: number) {
     return await this.typeormService.findUserWithRelations(id);
   }
@@ -90,6 +126,17 @@ export class TypeormController {
    * Query Builder example - Users with post count
    */
   @Get('users/stats/post-count')
+  @ApiOperation({
+    summary: 'Get users with post count (Query Builder)',
+    description: `Retrieve users with aggregated post counts using Query Builder.
+
+**Features demonstrated:**
+- Query Builder with LEFT JOIN
+- COUNT aggregation
+- GROUP BY clause
+- Alias usage`,
+  })
+  @ApiOkResponse({ description: 'Users with post counts' })
   async getUsersWithPostCount() {
     return await this.typeormService.findUsersWithPostCount();
   }
@@ -130,6 +177,25 @@ export class TypeormController {
    */
   @PostDecorator('users/with-profile')
   @HttpCode(HttpStatus.CREATED)
+  @ApiOperation({
+    summary: 'Create user with profile (One-to-One)',
+    description: `Create a user with a related profile in a single operation.
+
+**Features demonstrated:**
+- One-to-One relationship
+- Cascade operations
+- Related entity creation`,
+  })
+  @ApiBody({
+    description: 'User and profile data',
+    schema: {
+      example: {
+        user: { name: 'John Doe', email: 'john@example.com', age: 25 },
+        profile: { firstName: 'John', lastName: 'Doe', bio: 'Developer' },
+      },
+    },
+  })
+  @ApiCreatedResponse({ description: 'User with profile created successfully' })
   async createUserWithProfile(
     @Body() data: { user: Partial<User>; profile: Partial<Profile> },
   ) {
@@ -160,6 +226,26 @@ export class TypeormController {
    */
   @PostDecorator('transactions/user-profile')
   @HttpCode(HttpStatus.CREATED)
+  @ApiOperation({
+    summary: 'Create user with profile (Transaction)',
+    description: `Create a user with profile using a database transaction.
+
+**Features demonstrated:**
+- Database transactions
+- ACID properties (Atomicity, Consistency, Isolation, Durability)
+- Rollback on error
+- Data consistency guarantee`,
+  })
+  @ApiBody({
+    description: 'User and profile data',
+    schema: {
+      example: {
+        user: { name: 'John Doe', email: 'john@example.com', age: 25 },
+        profile: { firstName: 'John', lastName: 'Doe', bio: 'Developer' },
+      },
+    },
+  })
+  @ApiCreatedResponse({ description: 'User with profile created in transaction' })
   async createUserWithProfileTransaction(
     @Body() data: { user: Partial<User>; profile: Partial<Profile> },
   ) {
@@ -217,6 +303,18 @@ export class TypeormController {
    * Get TypeORM features explanation
    */
   @Get('features')
+  @ApiOperation({
+    summary: 'Get TypeORM features reference',
+    description: `Returns a comprehensive reference of TypeORM features and capabilities.
+
+**Features covered:**
+- Repositories
+- Query Builder
+- Relationships
+- Transactions
+- Entity Manager`,
+  })
+  @ApiOkResponse({ description: 'TypeORM features reference' })
   getTypeormFeatures() {
     return {
       repositories: {

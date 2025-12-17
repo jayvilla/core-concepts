@@ -9,14 +9,24 @@ import {
   HttpCode,
   HttpStatus,
 } from '@nestjs/common';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiParam,
+  ApiBody,
+  ApiCreatedResponse,
+  ApiOkResponse,
+} from '@nestjs/swagger';
 import { EventDrivenService } from './event-driven.service';
 
 /**
  * Event-Driven Architecture Controller
  * Demonstrates event-driven patterns through HTTP endpoints
- * 
+ *
  * Route: /concepts/event-driven
  */
+@ApiTags('Event-Driven')
 @Controller('concepts/event-driven')
 export class EventDrivenController {
   constructor(private readonly eventDrivenService: EventDrivenService) {}
@@ -27,6 +37,23 @@ export class EventDrivenController {
    */
   @Post('users')
   @HttpCode(HttpStatus.CREATED)
+  @ApiOperation({
+    summary: 'Create user (emits event)',
+    description: `Create a user and emit a 'user.created' event that triggers event handlers.
+
+**Features demonstrated:**
+- Event emission with NestJS EventEmitter
+- Event-driven architecture pattern
+- Decoupled event handlers
+- Asynchronous event processing`,
+  })
+  @ApiBody({
+    description: 'User data',
+    schema: {
+      example: { name: 'John Doe', email: 'john@example.com', age: 25 },
+    },
+  })
+  @ApiCreatedResponse({ description: 'User created and event emitted' })
   createUser(@Body() userData: { name: string; email: string; age: number }) {
     return this.eventDrivenService.createUser(userData);
   }

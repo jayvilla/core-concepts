@@ -9,6 +9,14 @@ import {
   Req,
   UseInterceptors,
 } from '@nestjs/common';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiParam,
+  ApiBody,
+  ApiOkResponse,
+} from '@nestjs/swagger';
 import { TracingLoggingService } from './tracing-logging.service';
 import { LoggingService } from './services/logging.service';
 import { CorrelationIdInterceptor } from './interceptors/correlation-id.interceptor';
@@ -18,9 +26,10 @@ import type { Request } from 'express';
 /**
  * Tracing and Logging Controller
  * Demonstrates logging and tracing patterns
- * 
+ *
  * Route: /concepts/tracing-logging
  */
+@ApiTags('Tracing & Logging')
 @Controller('concepts/tracing-logging')
 @UseInterceptors(CorrelationIdInterceptor, LoggingInterceptor)
 export class TracingLoggingController {

@@ -7,6 +7,15 @@ import {
   HttpCode,
   HttpStatus,
 } from '@nestjs/common';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiParam,
+  ApiBody,
+  ApiCreatedResponse,
+  ApiOkResponse,
+} from '@nestjs/swagger';
 import { SagaService } from './saga.service';
 import { PaymentService } from './services/payment.service';
 import { InventoryService } from './services/inventory.service';
@@ -18,6 +27,7 @@ import { ShippingService } from './services/shipping.service';
  *
  * Route: /concepts/saga
  */
+@ApiTags('Saga Pattern')
 @Controller('concepts/saga')
 export class SagaController {
   constructor(
@@ -33,6 +43,38 @@ export class SagaController {
    */
   @Post('orders/orchestration')
   @HttpCode(HttpStatus.CREATED)
+  @ApiOperation({
+    summary: 'Create order (Orchestration Saga)',
+    description: `Create an order using orchestration-based saga pattern.
+
+**Features demonstrated:**
+- Central orchestrator coordinates all steps
+- Sequential execution of saga steps
+- Compensation transactions on failure
+- Distributed transaction management
+- Saga state tracking
+
+**Saga Steps:**
+1. Reserve inventory
+2. Process payment
+3. Create shipping
+4. Complete order
+
+If any step fails, previous steps are compensated (rolled back).`,
+  })
+  @ApiBody({
+    description: 'Order data',
+    schema: {
+      example: {
+        userId: 1,
+        items: [
+          { productId: 'prod-1', quantity: 2, price: 29.99 },
+          { productId: 'prod-2', quantity: 1, price: 49.99 },
+        ],
+      },
+    },
+  })
+  @ApiCreatedResponse({ description: 'Order created via orchestration saga' })
   async createOrderWithOrchestration(
     @Body()
     orderData: {

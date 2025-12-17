@@ -8,6 +8,15 @@ import {
   HttpCode,
   HttpStatus,
 } from '@nestjs/common';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiParam,
+  ApiBody,
+  ApiCreatedResponse,
+  ApiOkResponse,
+} from '@nestjs/swagger';
 import { DataModelingService } from './data-modeling.service';
 
 /**
@@ -16,6 +25,7 @@ import { DataModelingService } from './data-modeling.service';
  *
  * Route: /concepts/data-modeling
  */
+@ApiTags('Data Modeling')
 @Controller('concepts/data-modeling')
 export class DataModelingController {
   constructor(private readonly dataModelingService: DataModelingService) {}
@@ -26,6 +36,37 @@ export class DataModelingController {
    */
   @Post('users/one-to-one')
   @HttpCode(HttpStatus.CREATED)
+  @ApiOperation({
+    summary: 'Create user with profile (One-to-One)',
+    description: `Create a user with a related profile demonstrating One-to-One relationship.
+
+**Features demonstrated:**
+- One-to-One relationship pattern
+- Foreign key constraint
+- Optional related entity
+- Cascade operations
+
+**Use cases:**
+- User profile information
+- Optional extended data
+- Performance optimization (separate table)`,
+  })
+  @ApiBody({
+    description: 'User and profile data',
+    schema: {
+      example: {
+        name: 'John Doe',
+        email: 'john@example.com',
+        profile: {
+          firstName: 'John',
+          lastName: 'Doe',
+          phone: '123-456-7890',
+          bio: 'Software developer',
+        },
+      },
+    },
+  })
+  @ApiCreatedResponse({ description: 'User with profile created successfully' })
   async createUserWithProfile(
     @Body()
     data: {
