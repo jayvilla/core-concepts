@@ -234,24 +234,39 @@ export default function Home() {
           </p>
           <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-800">
             <div>
-              <p className="font-semibold mb-2">Frontend Topics:</p>
+              <p className="font-semibold mb-3 text-gray-900">Frontend Topics ({frontendTopics.length}):</p>
               <ul className="list-disc list-inside space-y-1 ml-2">
-                <li>React concepts (Components, Hooks, State Management)</li>
-                <li>JavaScript fundamentals</li>
-                <li>Browser APIs & DOM manipulation</li>
-                <li>Performance optimization techniques</li>
-                <li>TypeScript for frontend</li>
+                <li>Controlled vs Uncontrolled Components</li>
+                <li>Component Lifecycle & useEffect</li>
+                <li>Props vs State</li>
+                <li>State Management (useState, useReducer, Context, Zustand, Redux)</li>
+                <li>Keys in Lists</li>
+                <li>Custom Hooks & Rules of Hooks</li>
+                <li>Memoization (useMemo, useCallback, React.memo)</li>
+                <li>Virtual DOM & Reconciliation</li>
+                <li>Code Splitting & Lazy Loading</li>
+                <li>Error Boundaries</li>
+                <li>TypeScript for Frontend</li>
+                <li>Debounce vs Throttle</li>
+                <li>Rendering Strategies (CSR, SSR, SSG, ISR, RSC)</li>
+                <li>Pagination vs Virtualization</li>
               </ul>
             </div>
             <div>
-              <p className="font-semibold mb-2">Backend Topics:</p>
+              <p className="font-semibold mb-3 text-gray-900">Backend Topics ({backendTopics.length}):</p>
               <ul className="list-disc list-inside space-y-1 ml-2">
-                <li>PostgreSQL database fundamentals</li>
-                <li>ORM comparison (Prisma, TypeORM, Sequelize)</li>
-                <li>Database relationships and modeling</li>
-                <li>SQL queries and optimization</li>
+                <li>PostgreSQL Fundamentals (SQL, Joins, Indexes)</li>
+                <li>ORM Comparison (Prisma, TypeORM, Sequelize)</li>
+                <li>Event-Driven Architecture</li>
+                <li>Saga Pattern (Orchestration & Choreography)</li>
+                <li>Tracing & Logging (Correlation IDs, Structured Logging)</li>
               </ul>
             </div>
+          </div>
+          <div className="mt-6 pt-6 border-t border-gray-300">
+            <p className="text-sm text-gray-700">
+              <strong>Total Concepts:</strong> {frontendTopics.length + backendTopics.length} topics covering essential frontend and backend concepts for technical interviews.
+            </p>
           </div>
         </div>
       </div>
