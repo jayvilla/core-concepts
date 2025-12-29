@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Home() {
-  const practiceTopics = [
+  const frontendTopics = [
     {
       title: "Controlled vs Uncontrolled Components",
       description:
@@ -29,7 +29,7 @@ export default function Home() {
     {
       title: "State Management",
       description:
-        "Master useState, useReducer, and Context API. Learn when to use each approach for effective state management.",
+        "Master useState, useReducer, Context API, Zustand, and Redux. Learn when to use each approach for effective state management.",
       href: "/state-management",
       emoji: "🗂️",
       status: "ready",
@@ -106,6 +106,9 @@ export default function Home() {
       emoji: "🎨",
       status: "ready",
     },
+  ];
+
+  const backendTopics = [
     {
       title: "PostgreSQL Concepts",
       description:
@@ -114,15 +117,39 @@ export default function Home() {
       emoji: "🐘",
       status: "ready",
     },
-    // Add more topics here as you create them
-    // {
-    //   title: "Closures & Scope",
-    //   description: "Practice understanding JavaScript closures and lexical scoping.",
-    //   href: "/closures",
-    //   emoji: "🔒",
-    //   status: "coming-soon",
-    // },
+    {
+      title: "ORM Comparison",
+      description:
+        "Learn how to model database entities using Prisma, TypeORM, and Sequelize. Compare syntax, features, and use cases for each ORM with side-by-side examples.",
+      href: "/orm",
+      emoji: "🗄️",
+      status: "ready",
+    },
   ];
+
+  const TopicCard = ({ topic }: { topic: typeof frontendTopics[0] }) => (
+    <Link
+      href={topic.status === "ready" ? topic.href : "#"}
+      className={`block p-6 rounded-lg border-2 transition-all duration-200 ${
+        topic.status === "ready"
+          ? "bg-white border-blue-300 hover:border-blue-500 hover:shadow-lg cursor-pointer"
+          : "bg-gray-100 border-gray-300 opacity-60 cursor-not-allowed"
+      }`}
+    >
+      <div className="flex items-start justify-between mb-3">
+        <span className="text-4xl">{topic.emoji}</span>
+        {topic.status === "coming-soon" && (
+          <span className="text-xs bg-gray-200 text-gray-800 px-2 py-1 rounded">
+            Coming Soon
+          </span>
+        )}
+      </div>
+      <h2 className="text-xl font-bold text-gray-900 mb-2">
+        {topic.title}
+      </h2>
+      <p className="text-gray-800 text-sm">{topic.description}</p>
+    </Link>
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
@@ -130,40 +157,38 @@ export default function Home() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            Frontend Interview Practice
+            Core Concepts Practice
           </h1>
           <p className="text-xl text-gray-800 max-w-3xl mx-auto">
-            Interactive examples and demonstrations of core frontend concepts
+            Interactive examples and demonstrations of core frontend and backend concepts
             for interview preparation.
           </p>
         </div>
 
-        {/* Practice Topics Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {practiceTopics.map((topic) => (
-            <Link
-              key={topic.href}
-              href={topic.status === "ready" ? topic.href : "#"}
-              className={`block p-6 rounded-lg border-2 transition-all duration-200 ${
-                topic.status === "ready"
-                  ? "bg-white border-blue-300 hover:border-blue-500 hover:shadow-lg cursor-pointer"
-                  : "bg-gray-100 border-gray-300 opacity-60 cursor-not-allowed"
-              }`}
-            >
-              <div className="flex items-start justify-between mb-3">
-                <span className="text-4xl">{topic.emoji}</span>
-                {topic.status === "coming-soon" && (
-                  <span className="text-xs bg-gray-200 text-gray-800 px-2 py-1 rounded">
-                    Coming Soon
-                  </span>
-                )}
-              </div>
-              <h2 className="text-xl font-bold text-gray-900 mb-2">
-                {topic.title}
-              </h2>
-              <p className="text-gray-800 text-sm">{topic.description}</p>
-            </Link>
-          ))}
+        {/* Frontend Concepts Section */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+            <span>🎨</span>
+            Frontend Concepts
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {frontendTopics.map((topic) => (
+              <TopicCard key={topic.href} topic={topic} />
+            ))}
+          </div>
+        </div>
+
+        {/* Backend Concepts Section */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+            <span>⚙️</span>
+            Backend Concepts
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {backendTopics.map((topic) => (
+              <TopicCard key={topic.href} topic={topic} />
+            ))}
+          </div>
         </div>
 
         {/* Info Section */}
@@ -175,15 +200,26 @@ export default function Home() {
             Each topic includes interactive examples, code explanations, and
             interview tips. Click on a topic to start practicing!
           </p>
-          <div className="text-sm text-gray-800">
-            <p className="font-semibold mb-2">Topics covered:</p>
-            <ul className="list-disc list-inside space-y-1 ml-2">
-              <li>React concepts (Components, Hooks, State Management)</li>
-              <li>JavaScript fundamentals (Closures, Scope, this binding)</li>
-              <li>Browser APIs & DOM manipulation</li>
-              <li>Performance optimization techniques</li>
-              <li>And more...</li>
-            </ul>
+          <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-800">
+            <div>
+              <p className="font-semibold mb-2">Frontend Topics:</p>
+              <ul className="list-disc list-inside space-y-1 ml-2">
+                <li>React concepts (Components, Hooks, State Management)</li>
+                <li>JavaScript fundamentals</li>
+                <li>Browser APIs & DOM manipulation</li>
+                <li>Performance optimization techniques</li>
+                <li>TypeScript for frontend</li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-semibold mb-2">Backend Topics:</p>
+              <ul className="list-disc list-inside space-y-1 ml-2">
+                <li>PostgreSQL database fundamentals</li>
+                <li>ORM comparison (Prisma, TypeORM, Sequelize)</li>
+                <li>Database relationships and modeling</li>
+                <li>SQL queries and optimization</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

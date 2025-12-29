@@ -64,10 +64,10 @@ Each module provides interactive examples and detailed explanations of core back
     )
     .addTag('App', 'Application health and information endpoints')
     .addServer(
-      `http://localhost:${process.env.PORT ?? 3000}`,
+      `http://localhost:${process.env.PORT ?? 8000}`,
       'Development Server',
     )
-    .addServer('http://localhost:3000', 'Default Development Server')
+    .addServer('http://localhost:8000', 'Default Development Server')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
@@ -84,7 +84,7 @@ Each module provides interactive examples and detailed explanations of core back
     },
   });
 
-  const port = process.env.PORT ?? 3000;
+  const port = process.env.PORT ?? 8000;
   await app.listen(port);
   console.log(`🚀 Backend server running on http://localhost:${port}`);
   console.log(

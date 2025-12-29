@@ -1,0 +1,76 @@
+// Prisma Schema
+// This file defines the database schema using Prisma's declarative syntax
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// User Model - Demonstrates relationships
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(100)
+  email     String   @unique @db.VarChar(255)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // One-to-One: User has one Profile
+  profile Profile?
+
+  // One-to-Many: User has many Posts
+  posts Post[]
+
+  // Many-to-Many: User has many Tags
+  tags Tag[]
+
+  @@index([email])
+  @@map("orm_users")
+}
+
+// Profile Model - One-to-One with User
+model Profile {
+  id        Int      @id @default(autoincrement())
+  bio       String?  @db.Text
+  avatar    String?  @db.VarChar(255)
+  userId    Int      @unique @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // One-to-One: Profile belongs to User
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("orm_profiles")
+}
+
+// Post Model - One-to-Many with User
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(200)
+  content   String   @db.Text
+  published Boolean  @default(false)
+  authorId  Int      @map("author_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Many-to-One: Post belongs to User (author)
+  author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([authorId])
+  @@map("orm_posts")
+}
+
+// Tag Model - Many-to-Many with User
+model Tag {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique @db.VarChar(50)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Many-to-Many: Tag belongs to many Users
+  users User[]
+
+  @@map("orm_tags")
+}
+

@@ -9,6 +9,7 @@ import { EventDrivenModule } from './concepts/event-driven/event-driven.module';
 import { SagaModule } from './concepts/saga/saga.module';
 import { TracingLoggingModule } from './concepts/tracing-logging/tracing-logging.module';
 import { DataModelingModule } from './concepts/data-modeling/data-modeling.module';
+import { OrmModule } from './concepts/orm/orm.module';
 import { CorrelationIdInterceptor } from './concepts/tracing-logging/interceptors/correlation-id.interceptor';
 import { LoggingInterceptor } from './concepts/tracing-logging/interceptors/logging.interceptor';
 import { HttpExceptionFilter } from './concepts/tracing-logging/filters/http-exception.filter';
@@ -29,6 +30,11 @@ import { Order } from './concepts/data-modeling/entities/ecommerce/order.entity'
 import { OrderItem } from './concepts/data-modeling/entities/ecommerce/order-item.entity';
 import { SoftDeleteExample } from './concepts/data-modeling/entities/advanced/soft-delete.entity';
 import { AuditTrailExample } from './concepts/data-modeling/entities/advanced/audit-trail.entity';
+// ORM entities (PostgreSQL)
+import { User as OrmUser } from './concepts/orm/entities/typeorm/user.entity';
+import { Profile as OrmProfile } from './concepts/orm/entities/typeorm/profile.entity';
+import { Post as OrmPost } from './concepts/orm/entities/typeorm/post.entity';
+import { Tag as OrmTag } from './concepts/orm/entities/typeorm/tag.entity';
 
 @Module({
   imports: [
@@ -66,6 +72,19 @@ import { AuditTrailExample } from './concepts/data-modeling/entities/advanced/au
       synchronize: process.env.NODE_ENV !== 'production', // Auto-create tables (disable in production, use migrations)
       logging: process.env.NODE_ENV !== 'production', // Log SQL queries (disable in production)
     }),
+    // TypeORM Configuration for ORM concept (PostgreSQL)
+    TypeOrmModule.forRoot({
+      name: 'orm', // Named connection for ORM comparison
+      type: 'postgres',
+      host: process.env.DB_HOST || 'localhost',
+      port: parseInt(process.env.DB_PORT || '5432', 10),
+      username: process.env.DB_USERNAME || 'postgres',
+      password: process.env.DB_PASSWORD || 'postgres',
+      database: process.env.DB_NAME || 'core_concepts',
+      entities: [OrmUser, OrmProfile, OrmPost, OrmTag],
+      synchronize: process.env.NODE_ENV !== 'production', // Auto-create tables (disable in production, use migrations)
+      logging: process.env.NODE_ENV !== 'production', // Log SQL queries (disable in production)
+    }),
     // Feature Modules
     RestApiModule,
     TypeormModule,
@@ -73,6 +92,7 @@ import { AuditTrailExample } from './concepts/data-modeling/entities/advanced/au
     SagaModule,
     TracingLoggingModule,
     DataModelingModule,
+    OrmModule,
   ],
   controllers: [AppController],
   providers: [
