@@ -11,7 +11,7 @@ import { useState } from "react";
 
 export default function StateComparison() {
   const [selectedApproach, setSelectedApproach] = useState<
-    "useState" | "useReducer" | "context"
+    "useState" | "useReducer" | "context" | "zustand" | "redux"
   >("useState");
 
   const approaches = [
@@ -82,6 +82,55 @@ export default function StateComparison() {
       ],
       example: "Theme, user auth, language preference",
     },
+    {
+      id: "zustand" as const,
+      name: "Zustand",
+      when: [
+        "Medium to large applications",
+        "Need global state without boilerplate",
+        "Want selective re-renders",
+        "Prefer simple API over Redux complexity",
+      ],
+      pros: [
+        "Minimal boilerplate - very simple API",
+        "No Provider needed - use anywhere",
+        "Selective subscriptions - optimized re-renders",
+        "Small bundle size (~1KB)",
+        "Great TypeScript support",
+        "Perfect middle ground between Context and Redux",
+      ],
+      cons: [
+        "Less ecosystem than Redux",
+        "No built-in DevTools (can add middleware)",
+        "Newer library (less battle-tested than Redux)",
+      ],
+      example: "E-commerce apps, dashboards, medium-sized SPAs",
+    },
+    {
+      id: "redux" as const,
+      name: "Redux Toolkit",
+      when: [
+        "Large, complex applications",
+        "Need time-travel debugging",
+        "Require middleware (thunks, sagas)",
+        "Team familiar with Redux patterns",
+      ],
+      pros: [
+        "Industry standard for large apps",
+        "Excellent DevTools support",
+        "Time-travel debugging",
+        "Rich middleware ecosystem",
+        "Predictable state updates",
+        "Great for teams and large codebases",
+      ],
+      cons: [
+        "More boilerplate than Zustand",
+        "Requires Provider wrapper",
+        "Steeper learning curve",
+        "Can be overkill for small apps",
+      ],
+      example: "Enterprise apps, complex dashboards, large teams",
+    },
   ];
 
   const current = approaches.find((a) => a.id === selectedApproach);
@@ -89,7 +138,7 @@ export default function StateComparison() {
   return (
     <div className="border-2 border-indigo-500 rounded-lg p-6 bg-white">
       <h2 className="text-2xl font-bold mb-4 text-indigo-900">
-        useState vs useReducer vs Context API
+        State Management Comparison
       </h2>
 
       <div className="space-y-6">
@@ -172,6 +221,12 @@ export default function StateComparison() {
             <p>
               <strong>Need both?</strong> → Use <code className="bg-gray-100 px-1 rounded">useReducer</code> in{" "}
               <code className="bg-gray-100 px-1 rounded">Context</code> for complex shared state!
+            </p>
+            <p>
+              <strong>Medium app, want simplicity?</strong> → Use <code className="bg-gray-100 px-1 rounded">Zustand</code>
+            </p>
+            <p>
+              <strong>Large app, need power?</strong> → Use <code className="bg-gray-100 px-1 rounded">Redux Toolkit</code>
             </p>
           </div>
         </div>
