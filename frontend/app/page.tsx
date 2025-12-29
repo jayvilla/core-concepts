@@ -106,6 +106,14 @@ export default function Home() {
       emoji: "🎨",
       status: "ready",
     },
+    {
+      title: "Pagination vs Virtualization",
+      description:
+        "Learn the difference between pagination and virtualization for handling large datasets. Understand when to use each approach and their performance implications with interactive table examples.",
+      href: "/pagination-virtualization",
+      emoji: "📄",
+      status: "ready",
+    },
   ];
 
   const backendTopics = [
