@@ -125,6 +125,30 @@ export default function Home() {
       emoji: "🗄️",
       status: "ready",
     },
+    {
+      title: "Event-Driven Architecture",
+      description:
+        "Learn event-driven architecture patterns with NestJS EventEmitter. Understand how to decouple components, handle asynchronous events, and build scalable systems.",
+      href: "/event-driven",
+      emoji: "📡",
+      status: "ready",
+    },
+    {
+      title: "Saga Pattern",
+      description:
+        "Learn the Saga pattern for managing distributed transactions. Understand orchestration vs choreography approaches for maintaining data consistency across microservices.",
+      href: "/saga",
+      emoji: "🔄",
+      status: "ready",
+    },
+    {
+      title: "Tracing & Logging",
+      description:
+        "Learn distributed tracing and structured logging patterns. Understand correlation IDs, request logging, error tracking, and how to debug distributed systems effectively.",
+      href: "/tracing-logging",
+      emoji: "📊",
+      status: "ready",
+    },
   ];
 
   const TopicCard = ({ topic }: { topic: typeof frontendTopics[0] }) => (
