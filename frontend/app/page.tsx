@@ -142,6 +142,14 @@ export default function Home() {
       status: "ready",
     },
     {
+      title: "Prisma Concepts",
+      description:
+        "Master Prisma ORM: schema definition, models, migrations, querying, and NestJS integration. Learn the schema-first approach with excellent TypeScript support.",
+      href: "/prisma",
+      emoji: "🔷",
+      status: "ready",
+    },
+    {
       title: "NestJS Concepts",
       description:
         "Master NestJS architecture and patterns. Learn about modules (feature, shared, global), providers (services), controllers, decorators, dependency injection, lifecycle events, and the distinction between structure and frameworks.",
@@ -282,6 +290,7 @@ export default function Home() {
               <ul className="list-disc list-inside space-y-1 ml-2">
                 <li>PostgreSQL Fundamentals (SQL, Joins, Indexes)</li>
                 <li>ORM Comparison (Prisma, TypeORM, Sequelize)</li>
+                <li>Prisma Concepts (Schema, Migrations, Querying, NestJS)</li>
                 <li>NestJS Concepts (Modules, Providers, DI, Lifecycle)</li>
                 <li>Event-Driven Architecture</li>
                 <li>Saga Pattern (Orchestration & Choreography)</li>
