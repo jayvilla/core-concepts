@@ -51,6 +51,14 @@ export default function Home() {
       status: "ready",
     },
     {
+      title: "SWR: Data Fetching & Caching",
+      description:
+        "Master SWR (stale-while-revalidate) for efficient data fetching in React. Learn caching, revalidation, mutations, optimistic updates, and advanced patterns.",
+      href: "/swr",
+      emoji: "🔄",
+      status: "ready",
+    },
+    {
       title: "Memoization: useMemo, useCallback, React.memo",
       description:
         "Learn how to optimize React performance with memoization. Understand when and how to use useMemo, useCallback, and React.memo effectively.",
@@ -131,6 +139,14 @@ export default function Home() {
         "Learn how to model database entities using Prisma, TypeORM, and Sequelize. Compare syntax, features, and use cases for each ORM with side-by-side examples.",
       href: "/orm",
       emoji: "🗄️",
+      status: "ready",
+    },
+    {
+      title: "NestJS Concepts",
+      description:
+        "Master NestJS architecture and patterns. Learn about modules (feature, shared, global), providers (services), controllers, decorators, dependency injection, lifecycle events, and the distinction between structure and frameworks.",
+      href: "/nestjs",
+      emoji: "🪶",
       status: "ready",
     },
     {
@@ -250,6 +266,7 @@ export default function Home() {
                 <li>State Management (useState, useReducer, Context, Zustand, Redux)</li>
                 <li>Keys in Lists</li>
                 <li>Custom Hooks & Rules of Hooks</li>
+                <li>SWR: Data Fetching & Caching</li>
                 <li>Memoization (useMemo, useCallback, React.memo)</li>
                 <li>Virtual DOM & Reconciliation</li>
                 <li>Code Splitting & Lazy Loading</li>
@@ -265,6 +282,7 @@ export default function Home() {
               <ul className="list-disc list-inside space-y-1 ml-2">
                 <li>PostgreSQL Fundamentals (SQL, Joins, Indexes)</li>
                 <li>ORM Comparison (Prisma, TypeORM, Sequelize)</li>
+                <li>NestJS Concepts (Modules, Providers, DI, Lifecycle)</li>
                 <li>Event-Driven Architecture</li>
                 <li>Saga Pattern (Orchestration & Choreography)</li>
                 <li>Tracing & Logging (Correlation IDs, Structured Logging)</li>
