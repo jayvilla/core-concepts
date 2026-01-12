@@ -157,6 +157,14 @@ export default function Home() {
       emoji: "📊",
       status: "ready",
     },
+    {
+      title: "Validation & DTOs",
+      description:
+        "Learn how to validate data at API boundaries using DTOs, class-validator, and class-transformer. Understand strong typing, Swagger integration, and enforcing contracts between frontend and backend.",
+      href: "/validation",
+      emoji: "✅",
+      status: "ready",
+    },
   ];
 
   const TopicCard = ({ topic }: { topic: typeof frontendTopics[0] }) => (
@@ -260,6 +268,7 @@ export default function Home() {
                 <li>Event-Driven Architecture</li>
                 <li>Saga Pattern (Orchestration & Choreography)</li>
                 <li>Tracing & Logging (Correlation IDs, Structured Logging)</li>
+                <li>Validation & DTOs (class-validator, class-transformer, Swagger)</li>
               </ul>
             </div>
           </div>
